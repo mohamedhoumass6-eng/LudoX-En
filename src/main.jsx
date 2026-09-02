@@ -5,6 +5,12 @@ import "./style.css";
 function App() {
   return (
     <main className="app">
+      <img
+        className="logo-image"
+        src="/logo.svg"
+        alt="LudoX En"
+      />
+
       <div className="logo">LudoX En 🎲</div>
 
       <div className="subtitle">
