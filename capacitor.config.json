@@ -1,0 +1,8 @@
+{
+  "appId": "com.ludox.en",
+  "appName": "LudoX En",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  }
+}
