@@ -58,3 +58,30 @@ body {
   height: 120px;
   margin: 20px auto;
 }
+.game-card {
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.board {
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 1;
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 3px;
+  padding: 8px;
+  background: white;
+  border-radius: 15px;
+}
+
+.cell {
+  background: #eee;
+  border-radius: 5px;
+  min-width: 0;
+  }
