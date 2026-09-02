@@ -2,14 +2,25 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./style.css";
 
+function Board() {
+  const cells = Array.from({ length: 49 });
+
+  return (
+    <div className="board">
+      {cells.map((_, index) => (
+        <div
+          key={index}
+          className={`cell cell-${index}`}
+        />
+      ))}
+    </div>
+  );
+}
+
 function App() {
   return (
     <main className="app">
-      <img
-        className="logo-image"
-        src="/logo.svg"
-        alt="LudoX En"
-      />
+      <img className="logo-image" src="/logo.svg" alt="LudoX En" />
 
       <div className="logo">LudoX En 🎲</div>
 
@@ -17,12 +28,13 @@ function App() {
         Play • Compete • Win
       </div>
 
-      <div className="card">
-        <h2>Welcome to LudoX En</h2>
-        <p>Ready to play Ludo?</p>
+      <div className="game-card">
+        <h2>Ludo Board</h2>
+
+        <Board />
 
         <button className="play">
-          PLAY NOW
+          ROLL DICE 🎲
         </button>
       </div>
     </main>
