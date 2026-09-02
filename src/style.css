@@ -15,49 +15,25 @@ body {
   background: linear-gradient(160deg, #17102f, #302060);
 }
 
-.logo {
-  text-align: center;
-  font-size: 38px;
-  font-weight: bold;
-  margin-top: 30px;
-}
-
-.subtitle {
-  text-align: center;
-  color: #c9c1e8;
-  margin-bottom: 35px;
-}
-
-.card {
-  max-width: 420px;
-  margin: auto;
-  padding: 25px;
-  border-radius: 25px;
-  background: rgba(255, 255, 255, 0.1);
-  text-align: center;
-}
-
-.play {
-  width: 100%;
-  padding: 16px;
-  border: 0;
-  border-radius: 15px;
-  background: #7c4dff;
-  color: white;
-  font-size: 20px;
-  font-weight: bold;
-  margin-top: 20px;
-}
-
-.play:active {
-  transform: scale(0.98);
-}
 .logo-image {
   display: block;
   width: 120px;
   height: 120px;
   margin: 20px auto;
 }
+
+.logo {
+  text-align: center;
+  font-size: 38px;
+  font-weight: bold;
+}
+
+.subtitle {
+  text-align: center;
+  color: #c9c1e8;
+  margin-bottom: 30px;
+}
+
 .game-card {
   max-width: 500px;
   margin: auto;
@@ -67,25 +43,85 @@ body {
   text-align: center;
 }
 
-.board {
+.ludo-board {
+  position: relative;
   width: 100%;
   max-width: 420px;
   aspect-ratio: 1;
   margin: 20px auto;
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 3px;
-  padding: 8px;
   background: white;
-  border-radius: 15px;
+  border: 8px solid white;
+  border-radius: 20px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
 }
 
-.cell {
-  background: #eee;
-  border-radius: 5px;
-  min-width: 0;
-  }
- }                               }
+.home {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
+  padding: 25px;
+}
+
+.red-home {
+  background: #ef4444;
+}
+
+.green-home {
+  background: #22c55e;
+}
+
+.yellow-home {
+  background: #facc15;
+}
+
+.blue-home {
+  background: #3b82f6;
+}
+
+.piece {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 4px solid white;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.red-piece {
+  background: #b91c1c;
+}
+
+.green-piece {
+  background: #15803d;
+}
+
+.yellow-piece {
+  background: #ca8a04;
+}
+
+.blue-piece {
+  background: #1d4ed8;
+}
+
+.center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: #7c4dff;
+  border: 7px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}
+
 .game-path {
   position: relative;
   width: 100%;
@@ -110,6 +146,37 @@ body {
   position: absolute;
   right: 15px;
   font-size: 35px;
+}
+
+.dice {
+  width: 65px;
+  height: 65px;
+  margin: 10px auto;
+  border-radius: 15px;
+  background: white;
+  color: #17102f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.play {
+  width: 100%;
+  padding: 16px;
+  border: 0;
+  border-radius: 15px;
+  background: #7c4dff;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.play:active {
+  transform: scale(0.98);
 }
 
 .instruction {
