@@ -2,61 +2,21 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./style.css";
 
-const colors = ["red", "green", "yellow", "blue"];
-
-function Board() {
+function App() {
   const [dice, setDice] = useState(1);
+  const [position, setPosition] = useState(0);
 
   function rollDice() {
-    setDice(Math.floor(Math.random() * 6) + 1);
+    const number = Math.floor(Math.random() * 6) + 1;
+    setDice(number);
   }
 
-  return (
-    <>
-      <div className="ludo-board">
-        <div className="home red-home">
-          <div className="piece red-piece"></div>
-          <div className="piece red-piece"></div>
-          <div className="piece red-piece"></div>
-          <div className="piece red-piece"></div>
-        </div>
+  function movePiece() {
+    if (dice > 0) {
+      setPosition((oldPosition) => oldPosition + dice);
+    }
+  }
 
-        <div className="home green-home">
-          <div className="piece green-piece"></div>
-          <div className="piece green-piece"></div>
-          <div className="piece green-piece"></div>
-          <div className="piece green-piece"></div>
-        </div>
-
-        <div className="home yellow-home">
-          <div className="piece yellow-piece"></div>
-          <div className="piece yellow-piece"></div>
-          <div className="piece yellow-piece"></div>
-          <div className="piece yellow-piece"></div>
-        </div>
-
-        <div className="home blue-home">
-          <div className="piece blue-piece"></div>
-          <div className="piece blue-piece"></div>
-          <div className="piece blue-piece"></div>
-          <div className="piece blue-piece"></div>
-        </div>
-
-        <div className="center">LudoX</div>
-      </div>
-
-      <div className="dice-area">
-        <div className="dice">{dice}</div>
-
-        <button className="play" onClick={rollDice}>
-          ROLL DICE 🎲
-        </button>
-      </div>
-    </>
-  );
-}
-
-function App() {
   return (
     <main className="app">
       <img className="logo-image" src="/logo.svg" alt="LudoX En" />
@@ -69,7 +29,36 @@ function App() {
 
       <div className="game-card">
         <h2>Ludo Game</h2>
-        <Board />
+
+        <div className="game-path">
+          <div
+            className="player-piece"
+            style={{
+              left: `${Math.min(position * 7, 84)}%`
+            }}
+            onClick={movePiece}
+          >
+            🔴
+          </div>
+
+          <div className="finish">🏆</div>
+        </div>
+
+        <div className="dice">
+          {dice}
+        </div>
+
+        <button className="play" onClick={rollDice}>
+          ROLL DICE 🎲
+        </button>
+
+        <p className="instruction">
+          Roll the dice, then tap your piece.
+        </p>
+
+        <p className="position">
+          Position: {position}
+        </p>
       </div>
     </main>
   );
