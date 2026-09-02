@@ -1,19 +1,58 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./style.css";
 
+const colors = ["red", "green", "yellow", "blue"];
+
 function Board() {
-  const cells = Array.from({ length: 49 });
+  const [dice, setDice] = useState(1);
+
+  function rollDice() {
+    setDice(Math.floor(Math.random() * 6) + 1);
+  }
 
   return (
-    <div className="board">
-      {cells.map((_, index) => (
-        <div
-          key={index}
-          className={`cell cell-${index}`}
-        />
-      ))}
-    </div>
+    <>
+      <div className="ludo-board">
+        <div className="home red-home">
+          <div className="piece red-piece"></div>
+          <div className="piece red-piece"></div>
+          <div className="piece red-piece"></div>
+          <div className="piece red-piece"></div>
+        </div>
+
+        <div className="home green-home">
+          <div className="piece green-piece"></div>
+          <div className="piece green-piece"></div>
+          <div className="piece green-piece"></div>
+          <div className="piece green-piece"></div>
+        </div>
+
+        <div className="home yellow-home">
+          <div className="piece yellow-piece"></div>
+          <div className="piece yellow-piece"></div>
+          <div className="piece yellow-piece"></div>
+          <div className="piece yellow-piece"></div>
+        </div>
+
+        <div className="home blue-home">
+          <div className="piece blue-piece"></div>
+          <div className="piece blue-piece"></div>
+          <div className="piece blue-piece"></div>
+          <div className="piece blue-piece"></div>
+        </div>
+
+        <div className="center">LudoX</div>
+      </div>
+
+      <div className="dice-area">
+        <div className="dice">{dice}</div>
+
+        <button className="play" onClick={rollDice}>
+          ROLL DICE 🎲
+        </button>
+      </div>
+    </>
   );
 }
 
@@ -29,13 +68,8 @@ function App() {
       </div>
 
       <div className="game-card">
-        <h2>Ludo Board</h2>
-
+        <h2>Ludo Game</h2>
         <Board />
-
-        <button className="play">
-          ROLL DICE 🎲
-        </button>
       </div>
     </main>
   );
